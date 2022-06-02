@@ -1,0 +1,12 @@
+.container {
+  width: 25%;
+  height: 100vh;
+  display: flex;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #282828;
+
+  align-items: center;
+}
