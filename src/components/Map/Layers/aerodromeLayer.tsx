@@ -1,22 +1,9 @@
 import { Marker, Tooltip, Circle } from 'react-leaflet';
-import L from 'leaflet';
 import { useState } from 'react';
 
-import { AerodromeModal } from './../AerodromeModal';
+import { AerodromeModal } from './../../AerodromeModal';
 
-
-import { aerodromes } from './aerodromes.ts';
-
-const aerodromeIcon = L.icon({
-  iconUrl: 'https://res.cloudinary.com/ruyawm/image/upload/v1654136858/test/Frame_1_cf7fga.svg',
-
-  iconSize: [12, 12], // size of the icon
-  shadowSize: null, // size of the shadow
-  iconAnchor: null, // point of the icon which will correspond to marker's location
-  shadowAnchor: null,  // the same for the shadow
-  popupAnchor: null // point from which the popup should open relative to the iconAnchor
-});
-
+import { aerodromes } from './../../../data/aerodromes.ts';
 
 export function AerodromeLayer() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -46,7 +33,8 @@ export function AerodromeLayer() {
           { modalIsOpen ? <AerodromeModal icao={aerodromeIcao} setModalIsOpen={setModalIsOpen} /> : null}
 
           <Circle 
-            center={[latitude_dec, longitude_dec]} 
+            center={[latitude_dec, longitude_dec]}
+            pathOptions={{ color: '#506574' }}
             radius={5000} 
             key={FID}
             eventHandlers={{
